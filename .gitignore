@@ -1,0 +1,8 @@
+# Secrets: never commit the real token
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

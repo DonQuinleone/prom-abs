@@ -1,0 +1,13 @@
+services:
+  abs-exporter:
+    build: .
+    image: abs-exporter:local
+    container_name: abs-exporter
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Point this at your Audiobookshelf container. The official image listens
+      # on port 80 internally — confirm against your ABS compose.
+      ABS_URL: "http://audiobookshelf:80"
+      LISTEN_PORT: "9835"
+    # No ports published — Prometheus scrapes it as abs-exporter:9835
